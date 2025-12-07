@@ -15,11 +15,13 @@
   --font-body: 'Montserrat', sans-serif;
   --font-button: 'Poppins', sans-serif;
 
-  /* Button styles */
+  /* Button radius */
   --btn-radius: 50px;
 }
 
-/* Global resets */
+/* ================================
+   GLOBAL STYLES
+=================================*/
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -36,105 +38,23 @@ body {
   min-height: 100vh;
 }
 
-/* Headings */
 h1, h2, h3, h4, h5, h6 {
   color: var(--violet);
   font-family: var(--font-headline);
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.8rem;
-}
+h1 { font-size: 2.8rem; }
 
-/* Taglines */
-.tagline,
-.hero-tagline {
-  font-family: var(--font-tagline) !important;
-  color: var(--pink);
-  font-size: 1.8rem;
-  text-shadow: 0 0 10px var(--pink-glow);
-}
-
-/* Silk-enhanced tagline in hero only */
-.hero-tagline {
-  font-size: 2.8rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-  margin: 0 auto 1.5rem;
-  line-height: 1.3;
-}
-
-.silk-text {
-  background: linear-gradient(90deg, #FF69B4, #FFD700, #FF69B4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 600;
-  background-size: 200% auto;
-  animation: shimmer 3s infinite ease-in-out;
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-/* Links */
 a {
   color: var(--pink);
   text-decoration: none;
 }
-a:hover {
-  color: #ff9dc7;
-}
-
-/* Buttons */
-.btn-primary {
-  background: var(--violet);
-  border: none;
-  border-radius: var(--btn-radius);
-  color: var(--white);
-  font-family: var(--font-button);
-  padding: 10px 24px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.btn-primary:hover {
-  background: var(--pink);
-  color: var(--black);
-  box-shadow: 0 0 18px var(--pink-glow);
-}
-
-.btn-outline-primary,
-.hero-video .btn {
-  border: 2px solid var(--violet);
-  color: var(--violet);
-  font-family: var(--font-button);
-  border-radius: var(--btn-radius);
-  padding: 12px 28px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.btn-outline-primary:hover,
-.hero-video .btn:hover {
-  background: var(--violet);
-  color: var(--white);
-  box-shadow: 0 0 12px rgba(106, 13, 173, 0.4);
-}
-
-/* ✅ FIX: Force visible text on hero CTA buttons */
-.hero-video .btn-primary {
-  color: #ffffff !important;
-}
-
-.hero-video .btn-outline-light {
-  color: #ffffff !important;
-}
+a:hover { color: #ff9dc7; }
 
 /* ================================
-   HERO VIDEO SECTION — FIXED
+   HERO SECTION
 =================================*/
-
 .hero-video {
   position: relative;
   height: 90vh;
@@ -171,14 +91,109 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
   align-items: center;
-  justify-content: center;
   z-index: 3;
   padding: 0 1rem;
 }
 
-/* Cards */
+.hero-content-wrapper .d-flex {
+  flex-direction: column !important;
+  gap: 15px !important;
+  height: auto !important;
+  overflow: visible !important;
+  align-items: center !important;
+}
+
+.hero-content-wrapper .btn {
+  display: block !important;
+  width: 100% !important;
+  max-width: 260px !important;
+  padding: 14px 20px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  border-radius: 40px !important;
+}
+
+/* Hero Tagline */
+.hero-tagline {
+  font-family: var(--font-tagline) !important;
+  color: var(--pink);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  margin: 0 auto 1.5rem;
+  line-height: 1.3;
+  font-size: 2.8rem;
+}
+
+.silk-text {
+  background: linear-gradient(90deg, #FF69B4, #FFD700, #FF69B4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  background-size: 200% auto;
+  animation: shimmer 3s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ================================
+   BUTTON STYLES
+=================================*/
+.btn-primary {
+  background: var(--violet);
+  border: none;
+  border-radius: var(--btn-radius);
+  color: var(--white);
+  font-family: var(--font-button);
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--pink);
+  color: var(--black);
+  box-shadow: 0 0 18px var(--pink-glow);
+}
+
+.btn-outline-primary,
+.hero-video .btn {
+  border: 2px solid var(--violet);
+  color: var(--violet);
+  font-family: var(--font-button);
+  border-radius: var(--btn-radius);
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover,
+.hero-video .btn:hover {
+  background: var(--violet);
+  color: var(--white);
+  box-shadow: 0 0 12px rgba(106, 13, 173, 0.4);
+}
+
+/* Hero CTA visibility fixes */
+.hero-video .btn-primary,
+.hero-video .btn-outline-light {
+  color: #ffffff !important;
+}
+
+.hero-video .btn-outline-light {
+  border: 2px solid #ffffff !important;
+}
+
+/* ================================
+   CARDS
+=================================*/
 .card {
   background: #111;
   border: 1px solid #333;
@@ -186,10 +201,23 @@ a:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
+
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(106, 13, 173, 0.5), 0 0 20px var(--pink-glow);
   border-color: var(--violet);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.03);
 }
 
 .card-title {
@@ -198,7 +226,9 @@ a:hover {
   font-size: 1.4rem;
 }
 
-/* Gallery */
+/* ================================
+   GALLERY
+=================================*/
 .gallery-item {
   height: 200px;
   cursor: pointer;
@@ -208,26 +238,24 @@ a:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(106, 13, 173, 0.4);
 }
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
-/* Testimonials */
-.text-pink {
-  color: var(--pink);
-}
+/* ================================
+   TESTIMONIALS
+=================================*/
+.text-pink { color: var(--pink); }
 
-/* Footer */
+/* ================================
+   FOOTER
+=================================*/
 footer.footer {
   background: var(--black);
   margin-top: auto;
   width: 100%;
 }
 
-/* WhatsApp Float Button */
+/* ================================
+   WHATSAPP FLOAT BUTTON
+=================================*/
 #whatsapp-float-btn {
   position: fixed;
   bottom: 20px;
@@ -244,14 +272,10 @@ footer.footer {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-#whatsapp-float-btn:hover {
-  transform: scale(1.1);
-}
-#whatsapp-float-btn img {
-  width: 26px;
-  height: 26px;
-  display: block;
-}
+
+#whatsapp-float-btn:hover { transform: scale(1.1); }
+
+#whatsapp-float-btn img { width: 26px; height: 26px; }
 
 #whatsapp-popup {
   position: fixed;
@@ -268,74 +292,58 @@ footer.footer {
   font-size: 14px;
   font-family: var(--font-body);
 }
-#whatsapp-popup.visible {
-  display: block;
+#whatsapp-popup.visible { display: block; }
+
+/* ================================
+   HERO BUTTON WRAPPER
+=================================*/
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* === HOVER ENHANCEMENTS === */
-
-/* Slight image zoom on card hover */
-.card img {
-  transition: transform 0.3s ease;
-}
-.card:hover img {
-  transform: scale(1.03);
-}
-
-/* Social icon hover */
-.social-icons a {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.social-icons a:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
+.hero-btn {
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+  min-width: 160px;
 }
 
-/* Ensure outline button hover is vibrant */
-.btn-outline-primary:hover {
-  background: var(--violet);
-  color: var(--white) !important;
-  box-shadow: 0 0 15px rgba(106, 13, 173, 0.5);
+.hero-btn-primary {
+  background: #d4af37;
+  color: #000;
 }
 
-/* ==============================
-   RESPONSIVE GENERAL ADJUSTMENTS
-============================== */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem !important;
-  }
-  .tagline,
-  .hero-tagline {
-    font-size: 1.4rem !important;
-  }
-  .hero-tagline {
-    font-size: 2.1rem !important;
-  }
-  .silk-text {
-    background: linear-gradient(90deg, #FF69B4, #FFD700);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: none;
-  }
-  .hero-video {
-    height: 80vh;
-    min-height: 500px;
-  }
+.hero-btn-primary:hover { background: #b8962f; }
+
+.hero-btn-secondary {
+  background: #000;
+  color: #d4af37;
+  border: 2px solid #d4af37;
 }
 
-/* ==============================
-   STYLIST IMAGE — SINGLE, LUXURY
-============================== */
+.hero-btn-secondary:hover { background: #111; }
 
+/* ================================
+   STYLIST IMAGE
+=================================*/
 .stylist-image-container {
   width: 100%;
   height: 400px;
   overflow: hidden;
   border-radius: 12px;
   background: #000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -349,23 +357,35 @@ footer.footer {
   transition: transform 0.3s ease;
 }
 
-/* Hover zoom (desktop only) */
 @media (min-width: 993px) {
-  .stylist-image:hover {
-    transform: scale(1.02);
-  }
+  .stylist-image:hover { transform: scale(1.02); }
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-  .stylist-image-container {
-    height: 320px;
-  }
-}
+@media (max-width: 992px) { .stylist-image-container { height: 320px; } }
+@media (max-width: 768px) { .stylist-image-container { height: 250px; } }
 
-/* Mobile */
+/* ================================
+   RESPONSIVE ADJUSTMENTS
+=================================*/
 @media (max-width: 768px) {
-  .stylist-image-container {
-    height: 250px;
-  }
+  h1 { font-size: 2.2rem !important; }
+  .tagline, .hero-tagline { font-size: 1.4rem !important; }
+  .hero-tagline { font-size: 2.1rem !important; }
+  .silk-text { animation: none; background: linear-gradient(90deg, #FF69B4, #FFD700); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero-video { height: 80vh; min-height: 500px; }
+}
+
+@media (max-width: 576px) {
+  .hero-content-wrapper { padding-top: 80px !important; }
+  .hero-content-wrapper .d-flex a { width: 100% !important; display: block !important; }
+  .hero-btn { width: 100%; max-width: 300px; padding: 14px 0; font-size: 1rem; }
+  .hero-buttons { gap: 12px; }
+}
+
+/* Ultra small screens (320-360px) */
+@media (max-width: 360px) {
+  .hero-content-wrapper { padding: 1rem !important; }
+  .hero-content-wrapper .d-flex { gap: 12px !important; }
+  .hero-content-wrapper .btn { font-size: 0.95rem !important; padding: 12px 16px !important; max-width: 100% !important; }
+  .hero-tagline { font-size: 1.8rem !important; line-height: 1.2 !important; }
 }
