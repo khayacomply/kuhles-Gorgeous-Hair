@@ -1,6 +1,6 @@
 /* main.js - Kuhlez Gorgeous Hair */
 /* ✅ Replace with your real WhatsApp number when live */
-const WHATSAPP_NUMBER = null; // e.g., '+27600123456'
+const WHATSAPP_NUMBER = '+27794018756'; // Updated to your current business number
 
 document.addEventListener('DOMContentLoaded', function () {
   // Initialize AOS
@@ -12,24 +12,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const waBtn = document.getElementById('whatsapp-float-btn');
   const waPopup = document.getElementById('whatsapp-popup');
 
-  if (waBtn && waPopup) {
+  if (waBtn) {
     waBtn.addEventListener('click', function () {
-      if (!WHATSAPP_NUMBER) {
-        waPopup.classList.toggle('visible');
-      } else {
-        const cleanNumber = WHATSAPP_NUMBER.replace(/\D/g, '');
-        const url = `https://wa.me/${cleanNumber}`;
-        window.open(url, '_blank');
-      }
-    });
-
-    // Close popup when clicking elsewhere
-    document.addEventListener('click', function (e) {
-      if (!waPopup.contains(e.target) && e.target !== waBtn && waPopup.classList.contains('visible')) {
-        waPopup.classList.remove('visible');
-      }
+      const cleanNumber = WHATSAPP_NUMBER.replace(/\D/g, ''); // Strips out +, spaces, dashes → 27794018756
+      const url = `https://wa.me/${cleanNumber}`; // ✅ No space after wa.me/
+      window.open(url, '_blank');
     });
   }
+
+  // Close popup when clicking elsewhere
+  document.addEventListener('click', function (e) {
+    if (!waPopup || !waPopup.classList.contains('visible')) return;
+    if (!waPopup.contains(e.target) && e.target !== waBtn) {
+      waPopup.classList.remove('visible');
+    }
+  });
 
   // Lightbox (simplified)
   document.querySelectorAll('[data-lightbox]').forEach(el => {
