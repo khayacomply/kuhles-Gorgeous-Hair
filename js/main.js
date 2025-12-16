@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (waBtn) {
     waBtn.addEventListener('click', function () {
       const cleanNumber = WHATSAPP_NUMBER.replace(/\D/g, ''); // Strips out +, spaces, dashes → 27794018756
-      const url = `https://wa.me/${cleanNumber}`; // ✅ No space after wa.me/
+      const url = `https://wa.me/${cleanNumber}`; // ✅ Fixed: removed extra spaces
       window.open(url, '_blank');
     });
   }
@@ -50,6 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }, { passive: true });
   });
+
+  // ✅ NEW: Load products from JSON on shop.html
+  if (document.getElementById('wigs-container') || document.getElementById('braids-container')) {
+    loadProducts();
+  }
 });
 
 // Simple lightbox
@@ -82,3 +87,47 @@ function openLightbox(src) {
   }, { threshold: 0.1 });
   document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
 })();
+
+// ✅ NEW: Product loader function
+async function loadProducts() {
+  try {
+    const response = await fetch('data/products.json');
+    if (!response.ok) throw new Error('Failed to load products');
+    const data = await response.json();
+
+    // Render wigs
+    const wigsContainer = document.getElementById('wigs-container');
+    if (wigsContainer && data.wigs) {
+      wigsContainer.innerHTML = data.wigs.map(product => `
+        <div class="col-md-6 col-lg-4">
+          <div class="card p-3 h-100">
+            <img src="${product.image}" loading="lazy" class="img-fluid rounded mb-2" alt="${product.alt}">
+            <h5 class="card-title">${product.name}</h5>
+            <p>${product.description}</p>
+            <p><strong class="text-pink">${product.price}</strong></p>
+            <a class="btn btn-sm btn-primary w-100" href="contact.html?service=wigs">Order / Enquire</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render braids
+    const braidsContainer = document.getElementById('braids-container');
+    if (braidsContainer && data.braids) {
+      braidsContainer.innerHTML = data.braids.map(product => `
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-3 h-100">
+            <img src="${product.image}" loading="lazy" class="img-fluid rounded mb-2" alt="${product.alt}">
+            <h5 class="card-title">${product.name}</h5>
+            <p>${product.description}</p>
+            <p><strong class="text-pink">${product.price}</strong></p>
+            <a class="btn btn-sm btn-primary w-100" href="contact.html?service=braids">Buy Now</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+  } catch (error) {
+    console.error('Error loading products:', error);
+  }
+}
