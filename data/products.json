@@ -1,0 +1,51 @@
+{
+  "wigs": [
+    {
+      "id": "wig-01",
+      "name": "Classic Lace Wig",
+      "price": "R799",
+      "category": "human",
+      "description": "Human hair, 16-inch, natural black. Pre-plucked & bleached knots.",
+      "image": "images/wig1.webp",
+      "alt": "Classic Lace Wig – 16-inch human hair"
+    },
+    {
+      "id": "wig-02",
+      "name": "Curly Synthetic Wig",
+      "price": "R249",
+      "category": "synthetic",
+      "description": "Heat-resistant, pre-styled curls. Lightweight & tangle-free.",
+      "image": "images/wig2.webp",
+      "alt": "Curly Synthetic Wig – heat resistant"
+    },
+    {
+      "id": "wig-03",
+      "name": "Full Lace Wig",
+      "price": "R1,299",
+      "category": "human",
+      "description": "100% human hair, 18-inch, free parting. Custom color on request.",
+      "image": "images/wig3.webp",
+      "alt": "Full Lace Human Hair Wig"
+    }
+  ],
+  "braids": [
+    {
+      "id": "braid-01",
+      "name": "Box Braids (Jumbo)",
+      "price": "R149/pack",
+      "category": "synthetic",
+      "description": "24-inch, silky texture, 24 strands per pack.",
+      "image": "images/braids1.webp",
+      "alt": "Box Braids – Jumbo, 24-inch"
+    },
+    {
+      "id": "braid-02",
+      "name": "Senegalese Twists",
+      "price": "R129/pack",
+      "category": "synthetic",
+      "description": "Medium size, 20-inch, ultra-soft synthetic fiber.",
+      "image": "images/braids2.webp",
+      "alt": "Senegalese Twists – Medium"
+    }
+  ]
+}
